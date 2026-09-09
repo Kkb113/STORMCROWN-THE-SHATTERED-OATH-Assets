@@ -7,11 +7,17 @@ on:
       - .github/workflows/assets.yml
 permissions:
   contents: write
+concurrency:
+  group: stormcrown-assets
+  cancel-in-progress: false
 jobs:
   assets:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -27,6 +33,7 @@ jobs:
           cp node_modules/three/build/three.module.js vendor/three.module.js
           cp node_modules/three/build/three.core.js vendor/three.core.js
           cp node_modules/three/LICENSE vendor/THREE-LICENSE.txt
+          rm -rf vendor/addons
           cp -R node_modules/three/examples/jsm vendor/addons
       - name: Commit reproducible runtime assets
         run: |
@@ -38,11 +45,12 @@ jobs:
             git pull --rebase origin main
             git push origin HEAD:main
           fi
+      - name: Export repository for offline development
+        run: |
+          mkdir -p /tmp/stormcrown-export
+          git bundle create /tmp/stormcrown-export/stormcrown.bundle --all
       - uses: actions/upload-artifact@v4
         with:
           name: stormcrown-art-assets
-          path: |
-            assets/
-            vendor/
-            package-lock.json
+          path: /tmp/stormcrown-export/stormcrown.bundle
           retention-days: 14

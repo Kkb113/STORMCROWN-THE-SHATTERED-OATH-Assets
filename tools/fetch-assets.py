@@ -1,5 +1,6 @@
-"""Acquire explicit CC0 sources, convert to efficient WebP, and record provenance.
-Run only when intentionally refreshing art assets. Existing runtime uses local files.
+"""Acquire CC0 PBR surfaces from Poly Haven; the game only loads local files.
+The API uses heterogeneous channel names. Resolve aliases explicitly and fail
+rather than silently shipping an absent or incorrectly colored normal map.
 """
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -17,11 +18,14 @@ SOURCES = {
     "wood": "dark_wooden_planks",
     "leather": "brown_leather",
 }
+ALIASES = {"diff": ("diff", "diffuse", "color", "albedo"),
+           "nor_gl": ("nor_gl", "normalgl", "normal"),
+           "rough": ("rough", "roughness")}
 
 def fetch(url):
     for attempt in range(4):
         try:
-            with urlopen(Request(url, headers={"User-Agent": "STORMCROWN asset build / CC0 attribution"}), timeout=90) as response:
+            with urlopen(Request(url, headers={"User-Agent": "STORMCROWN CC0 asset build"}), timeout=90) as response:
                 return response.read()
         except Exception:
             if attempt == 3:
@@ -29,14 +33,18 @@ def fetch(url):
             time.sleep(2 ** attempt)
 
 def choose(files, channel, resolution="2k"):
-    available = files[channel]
+    keys = {key.lower(): key for key in files}
+    key = next((keys[a] for a in ALIASES[channel] if a in keys), None)
+    if key is None:
+        raise RuntimeError(f"Missing {channel}; API offers {list(files)}")
+    available = files[key]
     level = available.get(resolution) or available.get("1k")
     if not level:
         raise RuntimeError(f"No suitable resolution for {channel}")
-    for ext in ("png", "jpg", "exr", "hdr"):
+    for ext in ("png", "jpg"):
         if ext in level:
             return level[ext]["url"]
-    raise RuntimeError(f"No compatible file for {channel}")
+    raise RuntimeError(f"No LDR source for {channel}")
 
 def main():
     records = []
@@ -50,7 +58,7 @@ def main():
             raw = fetch(url)
             image = Image.open(io.BytesIO(raw)).convert("RGB")
             path = target / f"{name}_{channel}.webp"
-            image.save(path, "WEBP", quality=92 if channel == "nor_gl" else 87, method=6)
+            image.save(path, "WEBP", quality=95 if channel == "nor_gl" else 88, method=6)
             records.append({"path": str(path.relative_to(ROOT)), "source": url,
                 "asset": f"https://polyhaven.com/a/{asset}", "license": "CC0-1.0",
                 "width": image.width, "height": image.height,
