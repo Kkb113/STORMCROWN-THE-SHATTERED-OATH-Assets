@@ -1,0 +1,32 @@
+name: Pinned rendering dependency
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - package.json
+      - .github/workflows/vendor.yml
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Package licensed rendering source
+        run: |
+          mkdir -p vendor
+          cp node_modules/three/build/three.module.js vendor/three.module.js
+          cp node_modules/three/build/three.core.js vendor/three.core.js
+          cp node_modules/three/LICENSE vendor/THREE-LICENSE.txt
+          cp -R node_modules/three/examples/jsm vendor/addons
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stormcrown-rendering-dependency
+          path: |
+            vendor/
+            package-lock.json
+          retention-days: 7

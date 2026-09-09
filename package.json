@@ -1,0 +1,16 @@
+{
+  "name": "stormcrown-the-shattered-oath",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "STORMCROWN: THE SHATTERED OATH — browser action RPG",
+  "scripts": {
+    "dev": "node tools/serve.mjs",
+    "start": "node tools/serve.mjs",
+    "build": "node tools/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "vendor": "node tools/vendor.mjs"
+  },
+  "dependencies": { "three": "0.179.1" },
+  "engines": { "node": ">=22" }
+}
