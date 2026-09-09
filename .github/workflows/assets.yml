@@ -1,0 +1,48 @@
+name: Art asset build
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - tools/fetch-assets.py
+      - .github/workflows/assets.yml
+permissions:
+  contents: write
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install Pillow==11.3.0
+      - run: python tools/fetch-assets.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Vendor pinned rendering modules
+        run: |
+          mkdir -p vendor
+          cp node_modules/three/build/three.module.js vendor/three.module.js
+          cp node_modules/three/build/three.core.js vendor/three.core.js
+          cp node_modules/three/LICENSE vendor/THREE-LICENSE.txt
+          cp -R node_modules/three/examples/jsm vendor/addons
+      - name: Commit reproducible runtime assets
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets vendor package-lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'assets: add licensed PBR surfaces and pinned renderer'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stormcrown-art-assets
+          path: |
+            assets/
+            vendor/
+            package-lock.json
+          retention-days: 14
