@@ -1,0 +1,38 @@
+name: Character anatomy source
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/character-art.yml
+permissions:
+  contents: read
+jobs:
+  anatomy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Acquire licensed anatomy, not application code
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib,urllib.request
+          root=pathlib.Path('character-source');root.mkdir()
+          api='https://api.github.com/repos/makehumancommunity/makehuman/commits/master'
+          req=urllib.request.Request(api,headers={'User-Agent':'STORMCROWN asset builder'})
+          revision=json.load(urllib.request.urlopen(req,timeout=30))['sha']
+          base=f'https://raw.githubusercontent.com/makehumancommunity/makehuman/{revision}/'
+          records=[]
+          for src,out in [('makehuman/data/3dobjs/base.obj','anatomy.obj'),('LICENSE.md','MAKEHUMAN-LICENSE.md'),('LICENSE.ASSETS.md','CC0-1.0.txt')]:
+              data=urllib.request.urlopen(base+src,timeout=60).read()
+              (root/out).write_bytes(data)
+              records.append({'path':out,'source':base+src,'sha256':hashlib.sha256(data).hexdigest(),'license':'CC0-1.0' if src.endswith('.obj') else 'license text'})
+          (root/'provenance.json').write_text(json.dumps(records,indent=2))
+          print('Acquired CC0 graphical assets at',revision)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stormcrown-character-anatomy
+          path: character-source/
+          retention-days: 14
