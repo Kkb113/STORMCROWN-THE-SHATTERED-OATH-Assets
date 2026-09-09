@@ -1,0 +1,159 @@
+[
+  {
+    "path": "assets/textures/stone_diff.webp",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/monastery_stone_floor/monastery_stone_floor_diff_2k.png",
+    "asset": "https://polyhaven.com/a/monastery_stone_floor",
+    "license": "CC0-1.0",
+    "width": 2048,
+    "height": 2048,
+    "source_sha256": "fd391c50280252e0608426cb4c51d13a840fe39dbc10c67429f9e6b4fc6a61a9",
+    "sha256": "ce1ab7dfa504cc7f3f9da9429cf5d0af4d23db8b561356a6b6d736f019c25dd3"
+  },
+  {
+    "path": "assets/textures/stone_nor_gl.webp",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/monastery_stone_floor/monastery_stone_floor_nor_gl_2k.png",
+    "asset": "https://polyhaven.com/a/monastery_stone_floor",
+    "license": "CC0-1.0",
+    "width": 2048,
+    "height": 2048,
+    "source_sha256": "58beb7054326e8f41ce10ab862925041291cc8056da96d5fba43869af66e2f6d",
+    "sha256": "a89f26f7268db91f7d494c5880111d0a939a1b46b02398f4d33880d9f16df02e"
+  },
+  {
+    "path": "assets/textures/stone_rough.webp",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/monastery_stone_floor/monastery_stone_floor_rough_2k.png",
+    "asset": "https://polyhaven.com/a/monastery_stone_floor",
+    "license": "CC0-1.0",
+    "width": 2048,
+    "height": 2048,
+    "source_sha256": "8de8c6a06e837947ba6454a2b0c74c06d4d066d5fa95b612386924b5530939a4",
+    "sha256": "cbdfcf80e66fb87d1feeaf9eeb79dad86cb04d965495febef1c1d2998d49490a"
+  },
+  {
+    "path": "assets/textures/brick_diff.webp",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/castle_brick_01/castle_brick_01_diff_2k.png",
+    "asset": "https://polyhaven.com/a/castle_brick_01",
+    "license": "CC0-1.0",
+    "width": 2048,
+    "height": 2048,
+    "source_sha256": "a0d141f51f28ca5d880604e30209d54aad5c11d91976c8a3a666038c4010b77b",
+    "sha256": "1c3742f8ff6e06ee9f01770ede6515ee09c7f3d5f3e438150e404b6db448ec2c"
+  },
+  {
+    "path": "assets/textures/brick_nor_gl.webp",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/castle_brick_01/castle_brick_01_nor_gl_2k.png",
+    "asset": "https://polyhaven.com/a/castle_brick_01",
+    "license": "CC0-1.0",
+    "width": 2048,
+    "height": 2048,
+    "source_sha256": "814c05fdf4a632dc2d120d8f23139881fc2db7f4d630a9e2568b7cc10c50bd11",
+    "sha256": "5f0b6f7c73b60f52c1e1745e93d02831f84d08ae5261f3385641de546c8ccf1f"
+  },
+  {
+    "path": "assets/textures/brick_rough.webp",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/castle_brick_01/castle_brick_01_rough_2k.png",
+    "asset": "https://polyhaven.com/a/castle_brick_01",
+    "license": "CC0-1.0",
+    "width": 2048,
+    "height": 2048,
+    "source_sha256": "03674accedeb18891425eee73b019be05d1e99f711bf20a5b1b567a6c50912d4",
+    "sha256": "dde5396b18693d8937ab553fad2fc04f62dee30ef65e924e527b501c1dfb6384"
+  },
+  {
+    "path": "assets/textures/rock_diff.webp",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/rock_boulder_dry/rock_boulder_dry_diff_2k.png",
+    "asset": "https://polyhaven.com/a/rock_boulder_dry",
+    "license": "CC0-1.0",
+    "width": 2048,
+    "height": 2048,
+    "source_sha256": "bba278641d6cda8c6907ee34b749b0b968a1731ca697470ba64a5819e8288085",
+    "sha256": "03fb52a2db41c8df5f5858b53d7402dd8de8a0c8200b5d5ab10b5d8e1e268c99"
+  },
+  {
+    "path": "assets/textures/rock_nor_gl.webp",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/rock_boulder_dry/rock_boulder_dry_nor_gl_2k.png",
+    "asset": "https://polyhaven.com/a/rock_boulder_dry",
+    "license": "CC0-1.0",
+    "width": 2048,
+    "height": 2048,
+    "source_sha256": "bee644c2d15f0b0f031d5699fc83e05a19c969541baa72533e136641ad9e7318",
+    "sha256": "d6daad310e147b0a2bf26757879e62130fae11d57a4e94ea2b42e6edbbe50115"
+  },
+  {
+    "path": "assets/textures/rock_rough.webp",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/rock_boulder_dry/rock_boulder_dry_rough_2k.png",
+    "asset": "https://polyhaven.com/a/rock_boulder_dry",
+    "license": "CC0-1.0",
+    "width": 2048,
+    "height": 2048,
+    "source_sha256": "236c8c8bcb210db07fc0dc83ac0de8a843d26ee12766a5bb8ce0b29aa9915def",
+    "sha256": "e03411212875a5dc82752dfedb826d100d406d3ab922a09690d13e64103344d4"
+  },
+  {
+    "path": "assets/textures/wood_diff.webp",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/dark_wooden_planks/dark_wooden_planks_diff_2k.png",
+    "asset": "https://polyhaven.com/a/dark_wooden_planks",
+    "license": "CC0-1.0",
+    "width": 2048,
+    "height": 2048,
+    "source_sha256": "f735d3924cc343a7cd813f7d4cdb94d78ef7be2b36253918df22bbd7cad3a031",
+    "sha256": "af123963f9de9c7382088bce69b4722f777f7480b8e4c989ecd4f3a8ccfb53db"
+  },
+  {
+    "path": "assets/textures/wood_nor_gl.webp",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/dark_wooden_planks/dark_wooden_planks_nor_gl_2k.png",
+    "asset": "https://polyhaven.com/a/dark_wooden_planks",
+    "license": "CC0-1.0",
+    "width": 2048,
+    "height": 2048,
+    "source_sha256": "9161c254c155a80fdcb0888c830ab8631b5c9c473081cc62b3e10227d22abb1b",
+    "sha256": "a39915e440b67d3cb20335accd92d4b448de743b2c3e4b4bf13b5193bed0f7ec"
+  },
+  {
+    "path": "assets/textures/wood_rough.webp",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/dark_wooden_planks/dark_wooden_planks_rough_2k.png",
+    "asset": "https://polyhaven.com/a/dark_wooden_planks",
+    "license": "CC0-1.0",
+    "width": 2048,
+    "height": 2048,
+    "source_sha256": "321046324137579505a2ca26c844d4cec1c1b08fa8ecf4d354bfa95667605ee4",
+    "sha256": "cbdfcf80e66fb87d1feeaf9eeb79dad86cb04d965495febef1c1d2998d49490a"
+  },
+  {
+    "path": "assets/textures/leather_diff.webp",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/brown_leather/brown_leather_albedo_1k.png",
+    "asset": "https://polyhaven.com/a/brown_leather",
+    "license": "CC0-1.0",
+    "width": 1024,
+    "height": 1024,
+    "source_sha256": "24f8bf54ee3b436f3077eacefb710ab77f62772fb75c5298e862854b597cd664",
+    "sha256": "88d9bde18b554f946555a7088c121e52f8c6f35eedfa2734916fbcfdb4e45089"
+  },
+  {
+    "path": "assets/textures/leather_nor_gl.webp",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/brown_leather/brown_leather_nor_gl_1k.png",
+    "asset": "https://polyhaven.com/a/brown_leather",
+    "license": "CC0-1.0",
+    "width": 1024,
+    "height": 1024,
+    "source_sha256": "6354daff40330a2fcd6c1061912876ddc79889c960975adba336b013db5edcd5",
+    "sha256": "d881d76c30c1735de99e8badea781416705e2a81874942091e164bc0143fbbdb"
+  },
+  {
+    "path": "assets/textures/leather_rough.webp",
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/brown_leather/brown_leather_rough_1k.png",
+    "asset": "https://polyhaven.com/a/brown_leather",
+    "license": "CC0-1.0",
+    "width": 1024,
+    "height": 1024,
+    "source_sha256": "80f3b3b886e2ca6deb1b54559457fc50945745df021c7773e39e1bebc9d8daa1",
+    "sha256": "11816e01292cdcbde6c7adb786fd47e7ed940be2d9b2b0df836fd3c0c062cdb5"
+  },
+  {
+    "path": "assets/environment/night.hdr",
+    "source": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/moonless_golf_1k.hdr",
+    "asset": "https://polyhaven.com/a/moonless_golf",
+    "license": "CC0-1.0",
+    "sha256": "4f597078024bd81429431e872d466d8808653ad62a8bc8c61d8052af7466c3aa"
+  }
+]
